@@ -1,0 +1,13 @@
+<Sysmon schemaversion="4.22">
+   <EventFiltering>
+ <RuleGroup name="" groupRelation="or">
+      <NetworkConnect onmatch="exclude">
+       <Image condition="end with">GiftRAP.Client.exe</Image> <!--Optima Healthcare-->
+	   <Image condition="end with">AppData\Local\Greenshot\Greenshot.exe</Image> <!--Greenshot-->
+       <Image condition="end with">AppData\Roaming\WallpapersEveryDay\WE.exe</Image> <!--Wallpapers Everyday-->
+       <Image condition="is">C:\Windows\LTSvc\LTSVC.exe</Image> <!--Eset-->
+       <DestinationIp condition="is">127.0.0.1</DestinationIp>
+	  </NetworkConnect>
+</RuleGroup>
+</EventFiltering>
+</Sysmon>

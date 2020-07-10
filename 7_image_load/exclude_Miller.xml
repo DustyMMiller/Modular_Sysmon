@@ -1,0 +1,13 @@
+<Sysmon schemaversion="4.22">
+   <EventFiltering>
+    <RuleGroup name="" groupRelation="or">
+      <ImageLoad onmatch="exclude">
+	    <ImageLoaded condition="is">C:\Windows\Temp\WindowsUpdateLog\DbgHelp.dll</ImageLoaded>
+	    <ImageLoaded condition="is">C:\Windows\Temp\WindowsUpdateLog\tracerpt.exe</ImageLoaded>
+	    <ImageLoaded condition="is">C:\ProgramData\Dell\KACE\kbots_cache\packages\kbots\40\KSMeter.exe</ImageLoaded>
+        <ImageLoaded condition="end with">MpOAV.dll</ImageLoaded>
+        <ImageLoaded condition="end with">mpclient.dll</ImageLoaded>
+      </ImageLoad>
+    </RuleGroup>
+  </EventFiltering>
+</Sysmon>

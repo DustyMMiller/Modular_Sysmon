@@ -1,0 +1,12 @@
+<Sysmon schemaversion="4.22">
+   <HashAlgorithms>*</HashAlgorithms>
+   <CheckRevocation/>
+   <EventFiltering>
+      <RuleGroup name="" groupRelation="or">
+      <DnsQuery onmatch="exclude">
+			<Image condition="is">C:\Program Files (x86)\Admin Arsenal\PDQ Inventory\PDQInventoryService.exe</Image>
+			<Image condition="is">C:\Program Files\ESET\ESET Security\ekrn.exe</Image>
+      </DnsQuery>
+</RuleGroup>
+</EventFiltering>
+</Sysmon>

@@ -1,0 +1,44 @@
+<Sysmon schemaversion="4.22">
+    <EventFiltering>
+        <RuleGroup name="" groupRelation="or">
+            <ProcessCreate onmatch="exclude">
+            <ParentImage condition="is">C:\Windows\LTSvc\LTSVC.exe</ParentImage> <!--ESET service-->
+			<ParentCommandLine condition="begin with">"cmd.exe" /C "sc queryex type= service | find /i "ScreenConnect</ParentCommandLine>
+			<ParentCommandLine condition="begin with">"cmd.exe" /C " netstat -ano | find</ParentCommandLine>
+			<ParentCommandLine condition="begin with">"cmd.exe" /C "  tasklist | find</ParentCommandLine>
+			<ParentCommandLine condition="is"> "cmd.exe"  /c "whoami"</ParentCommandLine>
+			<ParentImage condition="is">C:\Program Files (x86)\ScreenConnect Client (1a5d6cc5d5f07e3e)\ScreenConnect.ClientService.exe</ParentImage> <!--Screenconnect-->
+			<Image condition="begin with">C:\Program Files\WindowsApps\22094SynapticsIncorporate.AudioControls</Image> <!--Screenconnect-->
+			<ParentCommandLine condition="is">"cmd.exe" /C "powershell.exe "(Get-WmiObject -Query 'SELECT Caption FROM Win32_OperatingSystem').Caption""</ParentCommandLine>
+			<ParentCommandLine condition="is">"cmd.exe" /C "wmic path win32_operatingsystem get caption | find /i "server""</ParentCommandLine>
+			<ParentCommandLine condition="begin with">"cmd.exe" /C "powershell.exe "Get-ItemProperty HKLM:\software\microsoft\windows\currentversion\uninstall\*</ParentCommandLine>
+			<ParentCommandLine condition="begin with">"cmd.exe" /C "net view \\localhost | find </ParentCommandLine>
+			<ParentCommandLine condition="is">C:\Windows\system32\svchost.exe -k DcomLaunch -p</ParentCommandLine>
+			<ParentCommandLine condition="is">C:\Windows\system32\svchost.exe -k netsvcs -p -s Schedule</ParentCommandLine>
+			<ParentCommandLine condition="begin with">"cmd.exe" /C "sc queryex type= service</ParentCommandLine>
+			<ParentCommandLine condition="begin with">C:\Windows\System32\RuntimeBroker.exe -Embedding</ParentCommandLine>
+			<ParentCommandLine condition="begin with">C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted -p -s DsSvc</ParentCommandLine>
+			<CommandLine condition="is">C:\Windows\System32\svchost.exe -k LocalSystemNetworkRestricted -p -s DsSvc</CommandLine>
+			<CommandLine condition="is">C:\Windows\system32\svchost.exe -k netsvcs -p -s gpsvc</CommandLine>
+			<ParentCommandLine condition="is">"cmd.exe" /C "wmic path win32_operatingsystem get version /format:value | find /i "version""</ParentCommandLine>
+			<ParentCommandLine condition="is">"cmd.exe" /C "wmic path win32_operatingsystem get caption"</ParentCommandLine>
+			<ParentCommandLine condition="is">"cmd.exe" /C "wmic path win32_operatingsystem get producttype /value"</ParentCommandLine>
+			<ParentCommandLine condition="begin with">"cmd.exe" /C "powershell.exe "Get-ItemProperty HKLM:</ParentCommandLine>
+			<ParentCommandLine condition="begin with">"cmd.exe" /C "powershell.exe "Get-ItemProperty 'HKLM:</ParentCommandLine>
+			<ParentCommandLine condition="is">"C:\WINDOWS\CxSvc\CxAudioSvc.exe"</ParentCommandLine>
+			<ParentCommandLine condition="is">22094SynapticsIncorporate.AudioControls_qt57b6kdvhcfw!SmartAudio3 /startapp=AFA\CAudioFilterAgent64.exe</ParentCommandLine>
+			<ParentCommandLine condition="is">"cmd.exe" /C "powershell.exe "Add-PSSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue;(Get-PSSnapin microsoft.sharepoint.powershell).Version.Major;""</ParentCommandLine>
+			<ParentCommandLine condition="is">"cmd.exe" /C "powershell.exe "(Get-WmiObject -Query 'SELECT LicensingType FROM Win32_TerminalServiceSetting' -ErrorAction SilentlyContinue).LicensingType""</ParentCommandLine>
+			<ParentCommandLine condition="is">"cmd.exe" /C "powershell.exe "(Get-WmiObject -Namespace Root\CimV2\TerminalServices -Query 'SELECT LicensingType FROM Win32_TerminalServiceSetting' -ErrorAction SilentlyContinue).LicensingType""</ParentCommandLine>
+			<CommandLine condition="is">C:\Windows\System32\WindowsPowerShell\v1.0\powershell "Get-AppxPackage C27EB4BA.DropboxOEM | Remove-AppxPackage"</CommandLine>
+			<CommandLine condition="is">C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell "Get-AppxProvisionedPackage -Online | Where-Object DisplayName -In \"C27EB4BA.DropboxOEM\" | Remove-ProvisionedAppxPackage -Online"</CommandLine>
+			<CommandLine condition="is">powershell  -Command "($PSVersionTable.PSVersion).Major"</CommandLine>
+			<ParentCommandLine condition="is">C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell "Get-AppxProvisionedPackage -Online | Where-Object DisplayName -In \"C27EB4BA.DropboxOEM\" | Remove-ProvisionedAppxPackage -Online"</ParentCommandLine>
+			<Image condition="is">C:\Program Files\ESET\ESET Security\ekrn.exe</Image>
+			<ParentCommandLine condition="is">"powershell" -command "Get-WindowsUpdateLog -logpath C:\WINDOWS\WindowsUpdate.log"</ParentCommandLine>
+			<Image condition="is">C:\WINDOWS\LTSvc\LTSVC.exe</Image>
+			<Image condition="is">C:\Program Files\ESET\ESET Security\ekrn.exe</Image>
+			</ProcessCreate>
+        </RuleGroup>
+    </EventFiltering>
+</Sysmon>

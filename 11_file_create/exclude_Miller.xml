@@ -1,0 +1,24 @@
+<Sysmon schemaversion="4.22">
+   <EventFiltering>
+ <RuleGroup name="" groupRelation="or">
+      <FileCreate onmatch="exclude">
+	    <Image condition="is">C:\Program Files\ESET\ESET Security\ekrn.exe</Image>
+            <TargetFilename condition="begin with">C:\Windows\Temp\__PSScriptPolicyTest</TargetFilename> <!-- Windows: tests powershell language-->
+            <TargetFilename condition="contains">\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Windows PowerShell</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\Temp\WindowsUpdateLog\tracerpt.exe</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\Temp\WindowsUpdateLog\en-US\tracerpt.exe.mui</TargetFilename>
+            <TargetFilename condition="begin with">C:\Windows\Temp\WindowsUpdateLog\wuetl.log.tmp.0000</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\Temp\WindowsUpdateLog\DbgHelp.dll</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\System32\Tasks\GPUpdate</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\System32\Tasks\Endpoint Integrity</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\System32\Tasks\Sysmon</TargetFilename>
+            <TargetFilename condition="is">C:\ProgramData\Microsoft\Windows\Start Menu\Abort Restart.lnk</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\System32\Tasks\Uninstall Teamviewer</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\System32\Tasks\Reboot</TargetFilename>
+            <TargetFilename condition="is">C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-NonInteractive</TargetFilename>
+            <Image condition="is">C:\WINDOWS\LTSvc\LTSVC.exe</Image>
+            <Image condition="is">C:\Windows\TEMP\WindowsUpdateLog\tracerpt.exe</Image>
+		</FileCreate>
+</RuleGroup>
+</EventFiltering>
+</Sysmon>

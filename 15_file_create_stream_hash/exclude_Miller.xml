@@ -1,0 +1,10 @@
+<Sysmon schemaversion="4.22">
+   <EventFiltering>
+ <RuleGroup name="" groupRelation="or">
+      <FileCreateStreamHash onmatch="exclude">
+			<Image condition="contains">C:\Program Files\ESET\ESET Security\ekrn.exe</Image>
+			<TargetFilename condition="begin with">C:\Windows\CSC</TargetFilename>
+		</FileCreateStreamHash>
+</RuleGroup>
+</EventFiltering>
+</Sysmon>
